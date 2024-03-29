@@ -1,0 +1,51 @@
+body{
+    background-color: #6767ff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form, div{
+
+    display: flex;
+    flex-direction: column;
+  
+    padding: 35px;
+    width: 300px;
+    border-radius: 15px;
+    background-color: white;
+    border: 1px solid blue;
+    
+}
+form{
+    text-align: center;
+}
+
+form input{
+    padding: 7px;
+    margin-top: 3px;
+    border-radius: 15px;
+    border: none;
+    background-color: #ebebeb;
+}
+
+form input[type="submit"]{
+    padding: 10px;
+    background-color: #6767ff;
+    font-weight: bold;
+}
+
+form a{
+    text-align: start;
+}
+
+span{
+    color: red;
+}
+
+
+div p{
+    margin-bottom: 4px;
+    border-bottom: 1px solid gray;
+}
