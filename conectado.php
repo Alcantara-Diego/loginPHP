@@ -1,7 +1,28 @@
 <?php
+include("db.php");
 session_start();
 
-    // echo $_SESSION["nome"]
+    if(isset($_GET["notaSalva"])){
+
+        $notaSalva = $_GET["notaSalva"];
+        $usuarioId = $_SESSION["id"];
+
+
+        $sql = "UPDATE usuarios SET notas = ? WHERE id=?";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ss", $notaSalva, $usuarioId);
+        $stmt->execute();
+        $_SESSION["notas"] = $notaSalva;
+
+        header("location: conectado.php");
+        exit();
+
+
+
+    }
+
+
 
 ?>
 
@@ -15,9 +36,19 @@ session_start();
 </head>
 <body>
     <?php
-        echo "<h1>BEM-VINDO " .$_SESSION["nome"] . "</h1>";
+        echo "<h1>Bem-vindo " .$_SESSION["nome"] . "</h1>";
     ?>
   <h3>Você está conectado!</h3>
+
+  <?php
+    echo "<form method='get'> 
+    <textarea name='notaSalva' cols='30' rows='4'>" . $_SESSION["notas"] . "</textarea>
+    <br>
+    <input type='submit' value='Atualizar recado'>
+    <br>
+    ";
+  ?>
+  
     <a href="index.php">Sair</a>
     
 </body>

@@ -4,9 +4,7 @@ include("db.php");
 session_start();
 
 if(!isset($_SESSION["erro"])){$_SESSION["erro"]="";}
-// diego@email.com
 // senha testandoPHP
-
 //senha pedro123
 
 $sql = "SELECT * FROM usuarios"; 
@@ -39,6 +37,9 @@ if (isset($_POST["email"], $_POST["senha"])) {
         if(password_verify($senha, $row["senha"])) {
 
             $_SESSION["nome"] = $row["nome"];
+            $_SESSION["notas"] = $row["notas"];
+            $_SESSION["id"] = $row["id"];
+
             $_SESSION["erro"]="";
 
             header("location: conectado.php");
