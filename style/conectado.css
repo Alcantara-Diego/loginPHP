@@ -1,0 +1,113 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    background-color: rgb(236, 236, 236);
+}
+
+header{
+    margin-bottom: 15px;
+}
+nav{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;    text-transform: uppercase;
+
+    background-color: #6767ff;
+    color: white;
+    border-bottom: 1px solid black;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+.usuarioInfo{
+    padding: 10px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+.nota{
+    display: grid;
+    width: 180px;
+    height: 270px;
+    border-radius: 15px; 
+    border: 1px solid black;
+    background-color: #ffff88;
+}
+.nota .recado{
+    width: 100%;
+    height: 100%;
+    padding-top: 5px;
+    font-weight: normal;
+}
+.notaPrincipal{
+    margin: auto;
+    grid-template-rows:  10% 80% 10%;
+    padding: 5px 0px 15px 0px;
+}
+.notaPrincipal .titulo{
+    padding: 10px;   
+}
+.notaPrincipal textarea.recado{
+    padding: 10px;
+    background: none;
+    border: none;
+    outline: none;
+    font-weight: bold!important;
+    resize: none;
+}
+
+.notaPrincipal input[type="submit"]{
+    width: 80%;
+    padding: 5px;
+    margin: auto;
+    align-self: center;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    border-radius: 15px;
+}
+
+
+
+
+.notasContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    row-gap: 15px;
+    column-gap: 15px;
+}
+
+.notaCriada{
+    padding: 15px;
+}
+
+
+.notaCriada .titulo{
+    align-self: flex-start;
+    font-weight: bold;
+    text-align: start;
+    margin-bottom: 0;
+}
+
+.notaCriada .email{
+    align-self: flex-end;
+    justify-self: flex-end;
+}

@@ -77,37 +77,3 @@ span{
     color: red;
 }
 
-.notasContainer{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 80%;
-    justify-content: center;
-    row-gap: 15px;
-    column-gap: 15px;
-}
-.nota{
-    display: grid;
-    background-color: #ffff88;
-    width: 130px;
-    height: 250px;
-    padding: 0px 20px;
-    border-radius: 15px; 
-    border: 1px solid black;
-}
-
-.nota .titulo{
-    align-self: flex-start;
-    font-weight: bold;
-    text-align: start;
-    margin-bottom: 0;
-}
-.nota .recado{
-    margin-bottom: 7px;
-    border-bottom: 1px solid gray;
-}
-
-.nota .email{
-    align-self: flex-end;
-    justify-self: flex-end;
-}
