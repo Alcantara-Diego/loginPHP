@@ -1,51 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
 body{
-    background-color: #6767ff;
+    background-color: #6767ff; 
+
+}
+
+.loginConteudo{
+    height: 98vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding: 5px 4px;
 }
 
-form, div{
 
+form{
+    width: 400px;
+    height: 90%;
+    padding: 50px;
     display: flex;
     flex-direction: column;
-  
-    padding: 35px;
-    width: 300px;
+    justify-content: flex-start;
+    text-align: center;
     border-radius: 15px;
     background-color: white;
-    border: 1px solid blue;
-    
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.635);
 }
-form{
-    text-align: center;
+form img{
+    width: 100%;
+    margin: 0 auto 0 auto;
+}
+/* form h1{
+} */
+form .descricao{
+    margin-top: 8px;
+    margin-bottom: 20px;
+    color: rgb(204, 204, 204);
+
+}
+form div{
+    display: flex;
+    flex-direction: column;
 }
 
+form .inputDiv{
+    margin-top: 20px;
+}
 form input{
-    padding: 7px;
+    padding: 12px;
     margin-top: 3px;
-    border-radius: 15px;
+    border-radius: 18px;
     border: none;
-    background-color: #ebebeb;
+    background-color: #f3f3f3;
 }
 
 form input[type="submit"]{
-    padding: 10px;
+    padding: 12px;
     background-color: #6767ff;
     font-weight: bold;
+    color: white;
 }
 
 form a{
-    text-align: start;
+    text-align: center;
 }
 
 span{
     color: red;
 }
 
+.notasContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    justify-content: center;
+    row-gap: 15px;
+    column-gap: 15px;
+}
+.nota{
+    display: grid;
+    background-color: #ffff88;
+    width: 130px;
+    height: 250px;
+    padding: 0px 20px;
+    border-radius: 15px; 
+    border: 1px solid black;
+}
 
-div p{
-    margin-bottom: 4px;
+.nota .titulo{
+    align-self: flex-start;
+    font-weight: bold;
+    text-align: start;
+    margin-bottom: 0;
+}
+.nota .recado{
+    margin-bottom: 7px;
     border-bottom: 1px solid gray;
+}
+
+.nota .email{
+    align-self: flex-end;
+    justify-self: flex-end;
 }

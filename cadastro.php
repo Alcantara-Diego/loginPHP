@@ -42,8 +42,13 @@ if (isset($_POST["nome"], $_POST["email"], $_POST["senha"])) {
     <title>Criar usuário</title>
 </head>
 <body>
-    <form method="post">
+
+    <div class="loginConteudo">
+         <form method="post">
         <h1>Criar usuário</h1>
+
+        <p class="descricao">Crie uma conta para fazer sua nota e visualizar notas de outros usuários</p >
+        <img src="./assets/svg1.svg" alt="">
 
         <input type="text" name="nome" placeholder="nome">
 
@@ -54,6 +59,11 @@ if (isset($_POST["nome"], $_POST["email"], $_POST["senha"])) {
         <a href="index.php">Fazer login</a>
 
     </form>
+    </div>
+
+
+
+   
 
     
 

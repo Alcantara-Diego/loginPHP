@@ -67,39 +67,59 @@ if (isset($_POST["email"], $_POST["senha"])) {
     <title>Login PHP</title>
 </head>
 <body>
-    <form method="post">
+    <div class="loginConteudo">
+
+        <form method="post">
             <h1>Login PHP</h1>
+            <p class="descricao">Se conecte para criar uma nota e visualizar notas de outros usuários</p >
+            <img src="./assets/svg1.svg" alt="">
+
+            <div class="inputDiv">
+                <input type="email" name="email" id="email" placeholder="email">
+                <input type="password" name="senha" placeholder="senha">
+                <input type="submit" value="Login">
+                <?php
+                echo "<span>" . $_SESSION['erro']. "</span>";
+                ?>
+                <a href="cadastro.php">Não tem uma conta?Clique aqui</a>
+            </div>
+
+        </form>
 
 
-        <input type="email" name="email" id="email" placeholder="email">
-        <input type="password" name="senha" placeholder="senha">
-
-        <input type="submit" value="Login"> 
-        <?php
-        echo "<span>" . $_SESSION['erro']. "</span>";
-        ?>   
-        <a href="cadastro.php">Criar conta</a>
-
-    </form>
-
-  
-
-    <div>
-        <h2>Usuários cadastrados:</h2>
-
-        <?php
-            if($resultadoBusca->num_rows > 0) {
-                while($row = $resultadoBusca->fetch_assoc()){
-                    echo "<p>" . $row["id"] . " - " . $row["nome"] . " - " . $row["email"] . "</p>";
-            
-                } 
-            }
-        
-        ?>
 
     
-       
 
+        <!-- <div class="notasContainer">
+        
+            <?php
+                if($resultadoBusca->num_rows > 0) {
+                    while($row = $resultadoBusca->fetch_assoc()){
+                        echo "
+                        <div class='nota'>
+                            <div>
+                            <h2 class='titulo'>" . 
+                            $row["nome"] . "</h2>
+
+                            <p class='recado'>" . 
+                            $row["notas"] . "ddds</p>
+                            </div>
+
+                            <p class='email'>" . 
+                            $row["email"] . "</p>
+
+
+                        </div>";
+                
+                    } 
+                }
+            
+            ?>
+
+        
+        
+
+            </div> -->
         </div>
     
 </body>
