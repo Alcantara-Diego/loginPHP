@@ -1,5 +1,6 @@
 <?php
 include("db.php");
+require("validacao.php");
 // diego@email.com
 // senha testandoPHP
 
@@ -10,23 +11,51 @@ session_start();
 
 
 
-if (isset($_POST["nome"], $_POST["email"], $_POST["senha"])) {
+if (isset($_POST["nome"], $_POST["email"], $_POST["senha"], $_POST["senha2x"])) {
+    $permitirCriacao = true;
 
     $nome = $_POST["nome"];
     $email = $_POST["email"];
-    $senhaCriptografada = password_hash($_POST["senha"], PASSWORD_DEFAULT);
+    // $senhaCriptografada = password_hash($_POST["senha"], PASSWORD_DEFAULT);
     $notas = "vazio";
 
-    $stmt = $conn->prepare("INSERT INTO usuarios (nome, email, senha, notas) VALUES (?, ?, ?, ?)");
+    if(strlen($nome) < 5) {
+        $permitirCriacao=false;
+        $_SESSION["erro"]="O nome deve conter pelo menos 5 letras";
+    } else{
 
-    $stmt->bind_param("ssss", $nome, $email, $senhaCriptografada, $notas);
+        $senhaValidada = validarSenhas($_POST["senha"], $_POST["senha2x"]);
 
-    $stmt->execute();
-    $stmt->close();
- 
+        if (!$senhaValidada[0]) {
+            $permitirCriacao = false;
+            $_SESSION["erro"]= $senhaValidada[1];
+        }
+    }
 
-    header("Location: index.php");
-    exit();   
+    
+
+
+   
+
+
+    if($permitirCriacao){
+        $_SESSION["erro"]="";
+
+        
+        $stmt = $conn->prepare("INSERT INTO usuarios (nome, email, senha, notas) VALUES (?, ?, ?, ?)");
+
+        $stmt->bind_param("ssss", $nome, $email, $senhaCriptografada, $notas);
+
+        $stmt->execute();
+        $stmt->close();
+    
+
+        header("Location: index.php");
+        exit();   
+    }
+
+} else {
+    $_SESSION["erro"]="É necessário preencher todos os campos";
 }
 
 ?>
@@ -48,14 +77,20 @@ if (isset($_POST["nome"], $_POST["email"], $_POST["senha"])) {
         <h1>Criar usuário</h1>
 
         <p class="descricao">Crie uma conta para fazer sua nota e visualizar notas de outros usuários</p >
-        <img src="./assets/svg1.svg" alt="">
+        <img src="./assets/cadastroImagem.svg" alt="">
 
         <input type="text" name="nome" placeholder="nome">
 
         <input type="email" name="email" id="email" placeholder="email">
+
         <input type="password" name="senha" placeholder="senha">
+        <input type="password" name="senha2x" placeholder="confirme a senha">
+        
 
         <input type="submit" value="criar usuário">
+        <?php
+            echo "<span>" . $_SESSION['erro']. "</span>";
+        ?>
         <a href="index.php">Fazer login</a>
 
     </form>

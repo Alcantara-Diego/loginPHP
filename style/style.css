@@ -36,8 +36,7 @@ form img{
     width: 100%;
     margin: 0 auto 0 auto;
 }
-/* form h1{
-} */
+
 form .descricao{
     margin-top: 8px;
     margin-bottom: 20px;
@@ -60,8 +59,11 @@ form input{
     background-color: #f3f3f3;
 }
 
+form input[name="nome"]{
+    margin-top: 15px;
+}
+
 form input[type="submit"]{
-    padding: 12px;
     background-color: #6767ff;
     font-weight: bold;
     color: white;

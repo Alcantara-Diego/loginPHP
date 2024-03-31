@@ -72,7 +72,7 @@ if (isset($_POST["email"], $_POST["senha"])) {
         <form method="post">
             <h1>Login PHP</h1>
             <p class="descricao">Se conecte para criar uma nota e visualizar notas de outros usuários</p >
-            <img src="./assets/svg1.svg" alt="">
+            <img src="./assets/loginImagem.svg" alt="">
 
             <div class="inputDiv">
                 <input type="email" name="email" id="email" placeholder="email">
